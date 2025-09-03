@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">IT412Activity</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="lorem_ipsum">
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+
+    <!-- Login strings -->
+    <string name="login_title">LOGIN</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_register">Register</string>
+    <string name="login_submit">Submit</string>
+
+    <!-- Register strings -->
+    <string name="register_title">REGISTER</string>
+    <string name="register_email">Email</string>
+    <string name="register_password">Password</string>
+    <string name="register_last_name">Last Name</string>
+    <string name="register_first_name">First Name</string>
+    <string name="register_mobile">Mobile #</string>
+    <string name="register_cancel">Cancel</string>
+    <string name="register_submit">Submit</string>
+
+</resources>
