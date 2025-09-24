@@ -33,6 +33,27 @@ public class FirstFragment extends Fragment {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
+
+        binding.btnLoginSubmit.setOnClickListener(v -> {
+                UserAccount acct = new UserAccount();
+
+                acct.setEmailAddress(binding.etLoginEmail.getText().toString().trim());
+                acct.setPassword(binding.etLoginPassword.getText().toString().trim());
+
+                android.util.Log.d("UserInput", "Email: " + acct.getEmailAddress());
+                android.util.Log.d("UserInput", "Password: " + acct.getPassword());
+
+                if ("jomar@gmail.com".equals(acct.getEmailAddress()) &&
+                        "admin123".equals(acct.getPassword())) {
+                    android.util.Log.d("Login", "Login successful!");
+                    android.widget.Toast.makeText(getActivity(), "Login successful!", android.widget.Toast.LENGTH_SHORT).show();
+                } else {
+                    android.util.Log.d("Login", "Invalid credentials.");
+                    android.widget.Toast.makeText(getActivity(), "Invalid email or password", android.widget.Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        );
     }
 
     @Override

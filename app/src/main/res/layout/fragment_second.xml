@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="24dp"
+    android:background="@android:color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,64 +17,107 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register_title"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp" />
 
-        <EditText
-            android:id="@+id/etRegisterEmail"
+        <!-- Email -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_email"
-            android:inputType="textEmailAddress"/>
+            android:layout_marginBottom="16dp"
+            app:startIconDrawable="@android:drawable/ic_dialog_email">
 
-        <EditText
-            android:id="@+id/etRegisterPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegisterEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_password"
-            android:inputType="textPassword"/>
+            android:layout_marginBottom="16dp"
+            app:startIconDrawable="@android:drawable/ic_lock_idle_lock">
 
-        <EditText
-            android:id="@+id/etRegisterLastName"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegisterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_password"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Last Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_last_name"
-            android:inputType="textPersonName"/>
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/etRegisterFirstName"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegisterLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_last_name"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- First Name -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_first_name"
-            android:inputType="textPersonName"/>
+            android:layout_marginBottom="16dp">
 
-        <EditText
-            android:id="@+id/etRegisterMobile"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegisterFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_first_name"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mobile -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/register_mobile"
-            android:inputType="phone"/>
+            android:layout_marginBottom="24dp"
+            app:startIconDrawable="@android:drawable/ic_menu_call">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegisterMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_mobile"
+                android:inputType="phone" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="20dp">
+            android:gravity="center">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegisterCancel"
-                android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/register_cancel"/>
+                android:layout_weight="1"
+                android:text="@string/register_cancel" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegisterSubmit"
-                android:layout_width="wrap_content"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/register_submit"
-                android:layout_marginStart="20dp"/>
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:text="@string/register_submit" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
