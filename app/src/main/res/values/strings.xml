@@ -4,6 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="home_fragment_label">Home Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -27,5 +28,9 @@
     <string name="register_mobile">Mobile #</string>
     <string name="register_cancel">Cancel</string>
     <string name="register_submit">Submit</string>
+
+    <!-- Home strings-->
+
+    <string name="home_title">Home Page</string>
 
 </resources>

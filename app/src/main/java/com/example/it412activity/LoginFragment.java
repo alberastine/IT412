@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.google.gson.Gson;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -11,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.it412activity.databinding.FragmentFirstBinding;
 
-public class FirstFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     private FragmentFirstBinding binding;
 
@@ -30,30 +31,40 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.btnLoginRegister.setOnClickListener(v ->
-                NavHostFragment.findNavController(FirstFragment.this)
+                NavHostFragment.findNavController(LoginFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
 
         binding.btnLoginSubmit.setOnClickListener(v -> {
-                UserAccount acct = new UserAccount();
+            String inputEmail = binding.etLoginEmail.getText().toString().trim();
+            String inputPassword = binding.etLoginPassword.getText().toString().trim();
 
-                acct.setEmailAddress(binding.etLoginEmail.getText().toString().trim());
-                acct.setPassword(binding.etLoginPassword.getText().toString().trim());
+            // Retrieve JSON from SharedPreferences
+            android.content.SharedPreferences prefs = getActivity().getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE);
+            String userJson = prefs.getString("user", null);
 
-                android.util.Log.d("UserInput", "Email: " + acct.getEmailAddress());
-                android.util.Log.d("UserInput", "Password: " + acct.getPassword());
+            if (userJson != null) {
+                Gson gson = new Gson();
+                UserAccount savedUser = gson.fromJson(userJson, UserAccount.class);
 
-                if ("jomar@gmail.com".equals(acct.getEmailAddress()) &&
-                        "admin123".equals(acct.getPassword())) {
+                if (savedUser.getEmailAddress().equals(inputEmail) &&
+                        savedUser.getPassword().equals(inputPassword)) {
+
                     android.util.Log.d("Login", "Login successful!");
                     android.widget.Toast.makeText(getActivity(), "Login successful!", android.widget.Toast.LENGTH_SHORT).show();
+
+                    // Navigate to home
+                    NavHostFragment.findNavController(LoginFragment.this)
+                            .navigate(R.id.action_FirstFragment_to_fragment_home);
+
                 } else {
                     android.util.Log.d("Login", "Invalid credentials.");
                     android.widget.Toast.makeText(getActivity(), "Invalid email or password", android.widget.Toast.LENGTH_SHORT).show();
                 }
-
+            } else {
+                android.widget.Toast.makeText(getActivity(), "No registered user found", android.widget.Toast.LENGTH_SHORT).show();
             }
-        );
+        });
     }
 
     @Override
